@@ -21,7 +21,7 @@
 
 <script>
 import { ref } from "vue";
-import QuoteDisplay from "@/components/app/mainElements/dataRepresentations/quoteDisplay.vue";
+import QuoteDisplay from "@/components/app/common/quotes/quoteDisplay.vue";
 import DashboardCard from "@/components/app/common/cards/dashboard/dashboardCard.vue";
 
 import hilighter from "@/components/app/common/text/highlightText.vue";

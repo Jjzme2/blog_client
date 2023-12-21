@@ -1,0 +1,23 @@
+.task-display {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-gap: 1rem;
+	margin: 0 auto 3rem;
+}
+
+.task-card {
+	background-color: var(--devtool-background-color);
+	border-radius: 8px;
+	height: 100px;
+	margin: .5rem;
+	padding: 0.5rem 1.25rem;
+	width: auto;
+}
+
+.task-card h1 {
+	font-size: 1rem;
+}
+
+.task-card p {
+	font-size: .85rem;
+}

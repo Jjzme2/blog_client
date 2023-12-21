@@ -10,41 +10,62 @@ Theme:
 */
 
 :root {
-  /* Background */
-  --primary-background-color: #0d012e91; /* SET */
+  /* Backgrounds */
+  --primary-background-color: #0d012e91;
   --secondary-background-color: #3b3b3b;
 
-  /* Text */
-  --primary-text-color: #eff8e2; /* SET */
+  --devtool-background-color: #ffffff;
+
+
+
+  /* Texts */
+  --primary-text-color: #eff8e2;
   --secondary-text-color: #ffffff;
+  --important-text: #ffee00;
+  --subtle-text: #00000034;
+
+
 
   /* Links */
   --link-color: #52b2cf;
   --link-color-hover: #ff1fbc;
   --link-color-active: #c300ff;
+  --primary-route-text-color: #444079;
+
+
 
   /* Primary Buttons */
-  --primary-button-color: #310a31; /* SET */
+  --primary-button-color: #310a31;
   --primary-button-color-hover: #52b2cf;
   --primary-button-text-color: #eee0cb;
   --primary-button-text-color-hover: #280003;
 
+
+
   /* Secondary Buttons */
-  --secondary-button-color: #615756; /* SET */
+  --secondary-button-color: #615756;
   --secondary-button-color-hover: #ff1fbc;
   --secondary-button-text-color: #004b0a;
   --secondary-button-text-color-hover: #ffffff;
 
+
+
   /* Panels */
-  --primary-panel-color: #fcb0b32d; /* SET */
-  --secondary-panel-color: #00000023; /* SET */
+  --primary-panel-color: #fcb0b32d;
+  --secondary-panel-color: #00000023;
+
+
 
   /* Borders */
   --primary-border: 1px solid #deaefa;
 
+
+
   /* Shadows */
   --primary-shadow: 6px 8px 5px 0 rgba(0, 0, 0, 0.2);
   --inset-shadow: -5px -5px 5px rgba(0, 0, 0, 0.2) inset;
+
+
 
   /* Hover */
   --hover-start-color: #0d012e;

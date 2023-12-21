@@ -51,6 +51,10 @@ button:hover {
   transition-duration: 0.25s;
 }
 
+.common-route {
+	color: var(--primary-route-text-color);
+}
+
 
 
 

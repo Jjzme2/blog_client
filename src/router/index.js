@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/main/HomeView.vue";
 import PostView from "../views/pages/PostView.vue";
+import EmptyFormView from "../components/app/mainElements/forms/EmptyObjectForm.vue";
 
 const appName = "ILYTAT Blog";
 
@@ -50,6 +51,30 @@ const routes = [
     component: PostView,
     meta: {
       title: `${appName} -- Post`,
+      style: { color: routeColor },
+      hideInNav: true,
+    },
+  },
+
+  // New Post View
+  {
+    path: "/posts/new",
+    name: "newPost",
+    component: EmptyFormView,
+    meta: {
+      title: `${appName} -- New Post`,
+      style: { color: routeColor },
+      hideInNav: true,
+    },
+  },
+
+  //   New Quote View
+  {
+    path: "/quotes/new",
+    name: "newQuote",
+    component: EmptyFormView,
+    meta: {
+      title: `${appName} -- New Quote`,
       style: { color: routeColor },
       hideInNav: true,
     },
