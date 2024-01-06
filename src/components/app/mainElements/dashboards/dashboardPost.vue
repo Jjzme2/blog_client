@@ -2,15 +2,19 @@
   <div>
     <!-- Kept separate to enusre this is separate from the component. -->
     <DevTools
-      :tasks="devTasks"
       :location="this.$options.name"
+      :tasks="devTasks"
       :notes="devNotes"
+      :reminders="devReminders"
       @clicked="LogThis($event)"
     />
 
     <div class="dashboard-main">
       <div class="dashboard-header">
         <div v-if="post">
+          <button class="btn btn-primary" @click="$router.push('/posts/')">
+            Library
+          </button>
           <BlogPost :post="post" />
         </div>
 
@@ -41,22 +45,52 @@ export default {
   },
   data() {
     return {
-      devTasks: [
+      testHeaders: ["Title", "Description"],
+      testDataCollection: [
         {
-          title: "Create a new blog post",
-          description: "Add a button to create a new blog post.",
+          title: "Test 1",
+          description: "This is the first test",
         },
         {
-          title: "Try out Dev Task Viewer",
+          title: "Test 2",
+          description: "This is the second test",
+        },
+      ],
+      devTasks: [
+        {
+          title: "Clean the Client",
+          description:
+            "It will be really important for me to have a clean and current Client and Server. I will not be able to work effectively without doing this.",
+          notes: [
+            "This should take precendence.",
+            "Start within this Component.",
+          ],
         },
       ],
       devNotes: [
-        "Continue working on DevTools importer.",
-        "Continue working on Blog Creation Method",
-        "Ccontinue working on Dynamic form that will render the data from the Category Object with (Name) and (id) keys.",
-        "Find a way to make the DevTools more helpful. I would like them to be able to be used in any component, and also in a general way.",
+        "Don't delete the TEST 2 until I have determined why the issue exists -- The issue is determined and discussed in TEST 2.",
+        "Improve the blog-card styles. You can find these in the BlogLibrary `src\\components\\app\\mainElements\\blog\\blogLibrary.vue` ",
       ],
+      devReminders: [],
     };
+  },
+  beforeMount() {
+    this.$store.dispatch("posts/fetchAll");
+  },
+  computed: {
+    post() {
+      var post = this.$store.getters["posts/getById"](this.$route.params.id);
+      if (!post) {
+        return null;
+      }
+      return post;
+    },
+  },
+  watch: {
+    $route() {
+      this.$store.dispatch("posts/fetchAll");
+      //   this.SetPost(this.$route.params.id);
+    },
   },
   methods: {
     LogThis(task) {
@@ -68,14 +102,12 @@ export default {
 
       console.log(`Clicked ${JSON.stringify(obj)}`);
     },
-  },
-  mounted() {
-    this.$store.dispatch("posts/fetchAll");
-  },
-  computed: {
-    post() {
-      return this.$store.getters["posts/getById"](this.$route.params.id);
-    },
+    // SetPost(id) {
+    // //   //   console.log(this.$store.getters["posts/getById"](id));
+    // //   console.log(id);
+    // //   console.log(this.$store.getters["posts/getAll"]);
+    // //   console.log(this.$store.getters["posts/getById"](id));
+    // },
   },
 };
 </script>

@@ -3,6 +3,10 @@ import HomeView from "../views/main/HomeView.vue";
 import PostView from "../views/pages/PostView.vue";
 import EmptyFormView from "../components/app/mainElements/forms/EmptyObjectForm.vue";
 
+//  !Delete this as it is only relevant to the development environment
+import DevBookView from "../views/other/DevBookView.vue";
+import TestView from "../views/other/TestView.vue";
+
 const appName = "ILYTAT Blog";
 
 const routeColor = "#333333";
@@ -19,6 +23,28 @@ const routes = [
   //       hideInNav: false,
   //     },
   //   },
+
+  //  !Delete this as it is only relevant to the development environment
+  {
+    path: "/devbook",
+    name: "devbook",
+    component: DevBookView,
+    meta: {
+      title: `${appName} -- DevBook`,
+      style: { color: routeColor },
+      hideInNav: false,
+    },
+  },
+  {
+    path: "/tests",
+    name: "tests",
+    component: TestView,
+    meta: {
+      title: `${appName} -- Tests`,
+      style: { color: routeColor },
+      hideInNav: false,
+    },
+  },
 
   // AUTHORISED ROUTES
   {

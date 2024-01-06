@@ -9,16 +9,25 @@ const posts = {
   getters: {
     getAll: (state) => state.allItems,
     getById: (state) => (id) => {
-      if (state.allItems.find((item) => item.id === id) === undefined) {
-        if (state.emptyObject == {}) {
-          throw new Error(
-            "No post with this id, and `Empty Post` has not been initialized."
-          );
-        }
-        return state.emptyObject;
-      }
+      var item = {};
 
-      return state.allItems.find((item) => item.id === id);
+      if (Array.isArray(state.allItems)) {
+        item = state.allItems.find((item) => {
+          if (item.id == id) {
+            return item;
+          }
+        });
+        if (!item) {
+          // ID is undefinied, so we try to return the empty object
+          if (state.emptyObject == {}) {
+            throw new Error(
+              "No post with this id, and `Empty Post` has not been initialized."
+            );
+          }
+          return state.emptyObject;
+        }
+      }
+      return item;
     },
     getEmpty: (state) => state.emptyObject,
   },
@@ -53,6 +62,18 @@ const posts = {
         );
         commit("setEmpty", response);
         commit("appState/setLoading", false, { root: true });
+      } catch (error) {
+        APIService.handleError(commit, error);
+      }
+    },
+    async saveObject({ commit, state }, payload) {
+      commit("appState/setLoading", true, { root: true });
+      commit("appState/setError", null, { root: true });
+
+      try {
+        const response = await APIService.makeRequest.post(state.link, payload);
+        commit("appState/setLoading", false, { root: true });
+        return response;
       } catch (error) {
         APIService.handleError(commit, error);
       }

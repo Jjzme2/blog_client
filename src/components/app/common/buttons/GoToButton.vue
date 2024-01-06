@@ -15,7 +15,7 @@ export default {
     },
     buttonText: {
       type: String,
-      default: "Go Back",
+      default: "Go Home",
     },
   },
   computed: {

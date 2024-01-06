@@ -32,10 +32,15 @@ export default {
   data() {
     return {
       dashboardCards: {
-        Goals: {
+        Posts: {
           title: "Posts",
-          icon: "bi bi-book",
+          icon: "bi bi-file-text",
           route: "/posts",
+        },
+        Tests: {
+          title: "Tests",
+          icon: "bi bi-wrench",
+          route: "/tests",
         },
       },
     };

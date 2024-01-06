@@ -23,6 +23,7 @@ Theme:
   --secondary-text-color: #ffffff;
   --important-text: #ffee00;
   --subtle-text: #00000034;
+  --primary-button-text-color-disabled: #383838;
 
 
 
@@ -39,6 +40,7 @@ Theme:
   --primary-button-color-hover: #52b2cf;
   --primary-button-text-color: #eee0cb;
   --primary-button-text-color-hover: #280003;
+  --primary-button-color-disabled: #8b8b8b23;
 
 
 

@@ -1,13 +1,22 @@
 <template>
 	<div>
-		<h3>Developer Tasks from (<p style="color: var(--important-text); display: inline-block;
-">{{ location }}</p>) component</h3>
-		<hr />
+		<!-- Viewer Header Object -->
+		<ViewerHeader
+			:location="location"
+			dataCollection="Tasks"
+		/>
 
 		<div class="task-display">
 			<div v-for="task in tasks" :key="task.id" class="task-card" @click="$emit('clicked', task )">
 				<h1>{{ task.title }}</h1>
 				<p>{{ task.description }}</p>
+
+				<ul v-if="task.notes">
+					<h5>Notes: </h5>
+					<li v-for="note in task.notes" :key="note">
+						{{ note }}
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -15,8 +24,13 @@
 </template>
 
 <script>
+import ViewerHeader from "@/components/.dev/.tests/DevViewerHeader.vue";
+
 export default {
-	name: "taskViewer",
+	name: "DevTaskViewer",
+	components: {
+		ViewerHeader,
+	},
 	props: {
 		tasks: {
 			type: Array,

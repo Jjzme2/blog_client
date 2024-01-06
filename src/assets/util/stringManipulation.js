@@ -39,6 +39,18 @@ class StringHelper {
       "dot",
     ];
 
+    /* Examples of case types:
+    lower: "this is a sentence"
+    upper: "THIS IS A SENTENCE"
+    title: "This Is A Sentence"
+    sentence: "This is a sentence"
+    camel: "thisIsASentence"
+    pascal: "ThisIsASentence"
+    kebab: "this-is-a-sentence"
+    snake: "this_is_a_sentence"
+    dot: "this.is.a.sentence"
+	*/
+
     if (!acceptedCaseTypes.includes(caseType)) {
       console.warn(
         `Invalid case type provided: ${caseType}. Acceptable case types are: ${acceptedCaseTypes}`

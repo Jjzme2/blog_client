@@ -56,7 +56,12 @@ button:hover {
 }
 
 
-
+input:read-only {
+  background-color: var(--primary-button-color-disabled);
+  color: var(--primary-button-text-color-disabled);
+  cursor: default;
+  text-align: center;
+}
 
 
 

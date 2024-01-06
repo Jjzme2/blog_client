@@ -1,12 +1,14 @@
 <template>
 	<div>
-		<h3>Developer Notes from (<p style="color: var(--important-text); display: inline-block;
-">{{ location }}</p>) component</h3>
-		<hr />
+		<!-- Viewer Header Object -->
+			<ViewerHeader
+				:location="location"
+				dataCollection="Notes"
+				/>
 
 		<div class="note-display">
 			<div v-for="note in notes" :key="note.id" class="note-card" @click="$emit('clicked', note )">
-				<p style="color: var(--important-text)">{{ note }}</p>
+				<p>{{ note }}</p>
 			</div>
 		</div>
 	</div>
@@ -14,8 +16,14 @@
 </template>
 
 <script>
+// import notableText from "@/components/app/common/text/NotableText.vue";
+import ViewerHeader from "@/components/.dev/.tests/DevViewerHeader.vue";
+
 export default {
 	name: "DevNotesViewer",
+	components: {
+		ViewerHeader,
+	},
 	props: {
 		notes: {
 			type: Array,
